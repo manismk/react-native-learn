@@ -1,17 +1,19 @@
-import { Link, Slot } from "expo-router";
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Stack } from "expo-router/stack";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Layout() {
   return (
-    <SafeAreaView>
-      <View style={{ height: "95%" }}>
-        <Slot />
-      </View>
-      <View style={{ flexDirection: "row", gap: 15 }}>
-        <Link href={"/SomeOtherPage"}> Go to Some other page</Link>
-        <Link href={"/"}>Go to Home</Link>
-      </View>
-    </SafeAreaView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen
+          name="(WithoutTabs)/SomePage"
+          options={{
+            headerShown: true,
+            headerTitle: "Some page",
+            headerBackTitle: "Back",
+          }}
+        />
+      </Stack>
+    </GestureHandlerRootView>
   );
 }
