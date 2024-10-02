@@ -1,9 +1,9 @@
 import { Text, View } from "react-native";
 
-export default function () {
+export default function SomeOtherPage() {
   return (
     <View>
-      <Text>Hello From Home</Text>
+      <Text>Hi from Some Other page</Text>
     </View>
   );
 }
